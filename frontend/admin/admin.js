@@ -217,3 +217,4 @@ async function deleteBooking() {
 function output(el, data) {
     document.getElementById(el).textContent = JSON.stringify(data, null, 2);
 }
+
