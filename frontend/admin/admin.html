@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Portal</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../api.js"></script>
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <h1>Admin Portal</h1>
+  <p>Manage Locations, Resources, Services, Associations, Schedule Blocks, Recurring Schedules, and Bookings</p>
+
+  <!-- LOCATIONS -->
+  <h2>Locations</h2>
+  <div>
+    <h3>Create Location</h3>
+    <input id="locName" placeholder="Name">
+    <input id="locTZ" placeholder="Time Zone (e.g. America/New_York)">
+    <button onclick="createLocation()">Create</button>
+    <button onclick="listLocations()">List</button>
+    <pre id="locOutput"></pre>
+  </div>
+  <div>
+    <h3>Update Location</h3>
+    <input id="locUpdateId" placeholder="Location ID">
+    <input id="locNewName" placeholder="New Name">
+    <input id="locNewTZ" placeholder="New Time Zone">
+    <button onclick="updateLocation()">Update</button>
+  </div>
+  <div>
+    <h3>Delete Location</h3>
+    <input id="locDeleteId" placeholder="Location ID">
+    <button onclick="deleteLocation()">Delete</button>
+  </div>
+
+  <hr>
+
+  <!-- RESOURCES -->
+  <h2>Resources</h2>
+  <div>
+    <h3>Create Resource</h3>
+    <input id="resName" placeholder="Name">
+    <input id="resMax" type="number" placeholder="Max Simultaneous">
+    <button onclick="createResource()">Create</button>
+    <button onclick="listResources()">List</button>
+    <pre id="resOutput"></pre>
+  </div>
+  <div>
+    <h3>Update Resource</h3>
+    <input id="resUpdateId" placeholder="Resource ID">
+    <input id="resNewName" placeholder="New Name">
+    <input id="resNewMax" type="number" placeholder="New Max Simultaneous">
+    <button onclick="updateResource()">Update</button>
+  </div>
+  <div>
+    <h3>Delete Resource</h3>
+    <input id="resDeleteId" placeholder="Resource ID">
+    <button onclick="deleteResource()">Delete</button>
+  </div>
+
+  <hr>
+
+  <!-- SERVICES -->
+<h2>Services</h2>
+<div>
+  <h3>Create Service</h3>
+  <input id="srvName" placeholder="Name">
+  <input id="srvPrice" placeholder="Price">
+  <input id="srvDuration" placeholder="Duration (PT1H)">
+  <input id="srvBookable" placeholder="Bookable Interval (PT15M)">
+  <button onclick="createService()">Create</button>
+  <button onclick="listServices()">List</button>
+  <pre id="srvOutput"></pre>
+</div>
+<div>
+  <h3>Update Service</h3>
+  <input id="srvUpdateId" placeholder="Service ID">
+  <input id="srvNewName" placeholder="New Name">
+  <input id="srvNewPrice" placeholder="New Price">
+  <input id="srvNewDuration" placeholder="New Duration (PT1H)">
+  <input id="srvNewBookable" placeholder="New Bookable Interval (PT15M)">
+  <button onclick="updateService()">Update</button>
+</div>
+<div>
+  <h3>Delete Service</h3>
+  <input id="srvDeleteId" placeholder="Service ID">
+  <button onclick="deleteService()">Delete</button>
+</div>
+
+
+  <hr>
+
+  <!-- ASSOCIATIONS -->
+  <h2>Service ↔ Resource Associations</h2>
+  <div>
+    <h3>Associate Service to Resource</h3>
+    <input id="assocSrvId" placeholder="Service ID">
+    <input id="assocResId" placeholder="Resource ID">
+    <button onclick="associateServiceToResource()">Associate</button>
+    <button onclick="listAssociations()">List Associations</button>
+    <pre id="assocResSrvOutput"></pre>
+  </div>
+  <div>
+    <h3>Remove Association</h3>
+    <input id="assocSrvIdRemove" placeholder="Service ID">
+    <input id="assocResIdRemove" placeholder="Resource ID">
+    <button onclick="removeServiceFromResource()">Remove</button>
+  </div>
+
+  <hr>
+
+  <!-- SCHEDULE BLOCKS -->
+  <h2>Schedule Blocks</h2>
+  <div>
+    <h3>Create Schedule Block</h3>
+    <input id="sbResId" placeholder="Resource ID">
+    <input id="sbLocId" placeholder="Location ID">
+    <input id="sbStart" placeholder="Start (ISO)">
+    <input id="sbEnd" placeholder="End (ISO)">
+    <button onclick="createScheduleBlock()">Create</button>
+    <button onclick="listScheduleBlocks()">List</button>
+    <pre id="sbOutput"></pre>
+  </div>
+  <div>
+  <h3>Update Schedule Block</h3>
+  <input id="sbUpdateResId" placeholder="Resource ID">
+  <input id="sbUpdateId" placeholder="Block ID">
+  <input id="sbUpdateStart" placeholder="New Start (ISO)">
+  <input id="sbUpdateEnd" placeholder="New End (ISO)">
+  <button onclick="updateScheduleBlock()">Update</button>
+</div>
+
+
+  <div>
+    <h3>Delete Schedule Block</h3>
+    <input id="sbDeleteResId" placeholder="Resource ID">
+    <input id="sbDeleteId" placeholder="Block ID">
+    <button onclick="deleteScheduleBlock()">Delete</button>
+  </div>
+
+  <hr>
+
+  <!-- RECURRING SCHEDULES -->
+  <h2>Recurring Schedules</h2>
+  <div>
+    <h3>Create Recurring Schedule</h3>
+    <input id="rsResId" placeholder="Resource ID">
+    <input id="rsLocId" placeholder="Location ID">
+    <input id="rsStartDate" placeholder="Start Date (YYYY-MM-DD)">
+    <input id="rsEndDate" placeholder="End Date (YYYY-MM-DD)">
+    <input id="rsInterval" type="number" placeholder="Interval">
+    <button onclick="createRecurringSchedule()">Create</button>
+    <button onclick="listRecurringSchedules()">List</button>
+    <pre id="rsOutput"></pre>
+  </div>
+  <div>
+  <h3>Update Recurring Schedule</h3>
+  <input id="rsUpdateResId" placeholder="Resource ID">
+  <input id="rsUpdateId" placeholder="Schedule ID">
+  <input id="rsUpdateLocId" placeholder="Location ID (optional)">
+  <input id="rsUpdateStartDate" placeholder="New Start Date (YYYY-MM-DD)">
+  <input id="rsUpdateEndDate" placeholder="New End Date (YYYY-MM-DD)">
+  <input id="rsUpdateInterval" type="number" placeholder="New Interval (weeks)">
+  <button onclick="updateRecurringSchedule()">Update</button>
+</div>
+
+  <div>
+    <h3>Delete Recurring Schedule</h3>
+    <input id="rsDeleteResId" placeholder="Resource ID">
+    <input id="rsDeleteId" placeholder="Schedule ID">
+    <button onclick="deleteRecurringSchedule()">Delete</button>
+  </div>
+
+  <hr>
+
+  <!-- BOOKINGS -->
+  <h2>Bookings</h2>
+  <div>
+    <h3>Create Booking</h3>
+    <input id="bookLoc" placeholder="Location ID">
+    <input id="bookRes" placeholder="Resource ID">
+    <input id="bookSrv" placeholder="Service ID">
+    <input id="bookStart" placeholder="Start (ISO)">
+    <input id="bookEnd" placeholder="End (ISO)">
+    <button onclick="createBooking()">Create</button>
+    <button onclick="listBookings()">List</button>
+    <pre id="bookOutput"></pre>
+  </div>
+  <div>
+  <h3>Update Booking</h3>
+  <input id="bookUpdateId" placeholder="Booking ID">
+  <input id="bookUpdateLoc" placeholder="New Location ID">
+  <input id="bookUpdateRes" placeholder="New Resource ID">
+  <input id="bookUpdateSrv" placeholder="New Service ID">
+  <input id="bookUpdateStart" placeholder="New Start (ISO)">
+  <input id="bookUpdateEnd" placeholder="New End (ISO)">
+  <button onclick="updateBooking()">Update</button>
+</div>
+
+  <div>
+    <h3>Delete Booking</h3>
+    <input id="bookDeleteId" placeholder="Booking ID">
+    <button onclick="deleteBooking()">Delete</button>
+  </div>
+
+</body>
+</html>
