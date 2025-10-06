@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Portal</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../api.js"></script>
+  <script src="user.js" defer></script>
+</head>
+<body>
+  <h1>User Portal</h1>
+  <p>Book services directly as an end-user</p>
+
+  <div class="container">
+    <h2>Book a Service</h2>
+    <label for="uResourceId">Resource:</label>
+    <select id="uResourceId" onchange="populateServicesForResource()"></select>
+
+    <label for="uServiceId">Service:</label>
+    <select id="uServiceId"></select>
+
+    <input id="uStart" placeholder="Start (YYYY-MM-DDTHH:MM:SS+08:00)">
+    <input id="uEnd" placeholder="End (YYYY-MM-DDTHH:MM:SS+08:00)">
+    <button onclick="userBook()">Book</button>
+    <pre id="userBookResult"></pre>
+  </div>
+
+  <div class="container">
+    <h2>Available Resources</h2>
+    <button onclick="userListResources()">List Resources</button>
+    <pre id="userResResult"></pre>
+  </div>
+
+  <div class="container">
+    <h2>Available Services</h2>
+    <button onclick="userListServices()">List Services</button>
+    <pre id="userSrvResult"></pre>
+  </div>
+</body>
+</html>
