@@ -1,0 +1,56 @@
+{
+    "price": 50.00,
+    "defined_timings": [
+        {
+            "weekday": "monday",
+            "start_time": "09:00:00",
+            "end_time": "17:00:00"
+        },
+        {
+            "weekday": "tuesday",
+            "start_time": "09:00:00",
+            "end_time": "17:00:00"
+        },
+        {
+            "weekday": "wednesday",
+            "start_time": "09:00:00",
+            "end_time": "17:00:00"
+        },
+        {
+            "weekday": "thursday",
+            "start_time": "09:00:00",
+            "end_time": "17:00:00"
+        },
+        {
+            "weekday": "friday",
+            "start_time": "09:00:00",
+            "end_time": "17:00:00"
+        }
+    ],
+    "max_duration": 120,
+    "min_duration": 30,
+    "duration_interval": 15,
+    "resource_name": "Conference Room A",
+    "start_date": "2025-01-01",
+    "startTime": "09:00:00",
+    "endTime": "17:00:00",
+    "photo_url": "https://example.com/images/conference-room-a.jpg",
+    "capacity": 10,
+    "resource_details": {
+        "description": "Large conference room with modern amenities",
+    },
+    "email_confirmation": true,
+    "resource_plans": [
+        {
+            "plan_name": "Standard",
+        },
+        {
+            "plan_name": "Premium",
+        }
+    ],
+    "category": "meeting_room",
+    "location_id": "loc_12345",
+    "metadata": {
+        
+    }
+}

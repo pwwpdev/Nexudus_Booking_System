@@ -1,0 +1,71 @@
+{
+    "price": 50.00,
+    "defined_timings": [
+        {
+            "weekday": "monday",
+            "start_time": "09:00:00",
+            "end_time": "17:00:00"
+        },
+        {
+            "weekday": "tuesday",
+            "start_time": "09:00:00",
+            "end_time": "17:00:00"
+        },
+        {
+            "weekday": "wednesday",
+            "start_time": "09:00:00",
+            "end_time": "17:00:00"
+        },
+        {
+            "weekday": "thursday",
+            "start_time": "09:00:00",
+            "end_time": "17:00:00"
+        },
+        {
+            "weekday": "friday",
+            "start_time": "09:00:00",
+            "end_time": "17:00:00"
+        }
+    ],
+    "max_duration": 120,
+    "min_duration": 30,
+    "duration_interval": 15,
+    "resource_name": "Test-2",
+    "start_date": "2025-01-01",
+    "startTime": "09:00:00",
+    "endTime": "17:00:00",
+    "photo_url": "https://example.com/images/conference-room-a.jpg",
+    "capacity": 10,
+    "resource_details": {
+        "description": "Large conference room with modern amenities",
+        "floor": 2,
+        "building": "Main Office"
+    },
+    "email_confirmation": true,
+    "resource_plans": [
+        {
+            "plan_name": "Standard"
+        },
+        {
+            "plan_name": "Premium"
+        }
+    ],
+    "category": "meeting_room",
+    "location_id": "loc_12345",
+    "metadata": {
+    },
+    "rates": [
+        {
+            "price_name": "Standard Hourly Rate",
+            "description": "Basic hourly rate for conference room usage",
+            "price": 50,
+            "renewal_type": "every hour"
+        },
+        {
+            "price_name": "Daily Package",
+            "description": "Full day access with all amenities included",
+            "price": 300,
+            "renewal_type": "every day"
+        }
+    ]
+}
